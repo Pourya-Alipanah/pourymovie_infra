@@ -1,0 +1,57 @@
+services:
+  traefik:
+    extends:
+      file: ./traefik/docker-compose.yml
+      service: traefik
+
+  backend:
+    extends:
+      file: ./backend/docker-compose.yml
+      service: backend
+
+#  frontend:
+#    extends:
+#      file: ./frontend/docker-compose.yml
+#      service: frontend
+
+  db:
+    extends:
+      file: ./db/docker-compose.yml
+      service: db
+
+  minio:
+    extends:
+      file: ./minio/docker-compose.yml
+      service: minio
+
+  portainer:
+    extends:
+      file: ./portainer/docker-compose.yml
+      service: portainer
+
+  runner_backend:
+    extends:
+      file: ./runner/docker-compose.yml
+      service: runner_backend
+
+#  runner_frontend:
+#    extends:
+#      file: ./runner/docker-compose.yml
+#      service: runner_frontend
+
+  runner_infra:
+    extends:
+      file: ./runner/docker-compose.yml
+      service: runner_infra
+
+volumes:
+  portainer_data:
+  minio-data:
+  pgdata:
+  runner_backend_data:
+#  runner_frontend_data:
+  runner_infra_data:
+
+networks:
+  pourymovie:
+    name: pourymovie

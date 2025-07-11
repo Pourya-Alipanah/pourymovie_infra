@@ -1,0 +1,27 @@
+entryPoints:
+  web:
+    address: ":80"
+#  websecure:
+#    address: ":443"
+
+api:
+  dashboard: true
+  insecure: false
+
+log:
+  level: DEBUG
+
+providers:
+  docker:
+    exposedByDefault: false
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
+
+#certificatesResolvers:
+#  letsencrypt:
+#    acme:
+#      email: pourya.alipanah2@gmail.com
+#      storage: /etc/traefik/acme.json
+#      httpChallenge:
+#        entryPoint: web

@@ -1,0 +1,34 @@
+services:
+  runner_backend:
+    image: myoung34/github-runner:latest
+    environment:
+      REPO_URL: ${BACKEND_REPO_URL}
+      ACCESS_TOKEN: ${PAT_ACCESS_TOKEN}
+      RUNNER_NAME: runner_backend
+    volumes:
+      - runner_backend_data:/tmp/github-runner
+    env_file:
+      - ./.env
+    networks:
+      - pourymovie
+#  runner_frontend:
+#    image: myoung34/github-runner:latest
+#    environment:
+#      REPO_URL: ${FRONTEND_REPO_URL}
+#      ACCESS_TOKEN: ${PAT_ACCESS_TOKEN}
+#      RUNNER_NAME: runner_frontend
+#    volumes:
+#      - runner_frontend_data:/tmp/github-runner
+  runner_infra:
+    image: myoung34/github-runner:latest
+    environment:
+      REPO_URL: ${INFRA_REPO_URL}
+      ACCESS_TOKEN: ${PAT_ACCESS_TOKEN}
+      RUNNER_NAME: runner_infra
+    volumes:
+      - runner_infra_data:/tmp/github-runner
+    env_file:
+      - ./.env
+    networks:
+      - pourymovie
+
