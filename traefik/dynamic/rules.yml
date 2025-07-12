@@ -34,22 +34,26 @@ http:
 
     swagger-router:
       rule: "Host(`swagger.pourymovie.ir`)"
-      service: swagger-service
+      service: backend-service
       entryPoints:
         - websecure
       tls:
         certResolver: letsencrypt
+      middlewares:
+        - swagger-prefix
+
+
+  middlewares:
+    swagger-prefix:
+      replacePathPrefix:
+        prefix: /
+        replacement: /apiDocs/v1
 
   services:
     backend-service:
       loadBalancer:
         servers:
           - url: "http://backend:1406"
-
-    swagger-service:
-      loadBalancer:
-        servers:
-          - url: "http://backend:1406/apiDocs/v1"
 
     frontend-service:
       loadBalancer:
