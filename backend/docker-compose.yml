@@ -13,3 +13,6 @@ services:
     networks:
       - pourymovie
 
+networks:
+  pourymovie:
+    external: true

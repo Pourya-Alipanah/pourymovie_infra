@@ -16,3 +16,7 @@ services:
       - ./dynamic:/etc/traefik/dynamic
     networks:
       - pourymovie
+
+networks:
+  pourymovie:
+    external: true
