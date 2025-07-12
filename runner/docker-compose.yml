@@ -5,6 +5,8 @@ services:
       RUNNER_NAME: runner_backend
     volumes:
       - runner_backend_data:/tmp/github-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/pourymovie:/opt/pourymovie
     networks:
       - pourymovie
 #  runner_frontend:
@@ -15,12 +17,16 @@ services:
 #      RUNNER_NAME: runner_frontend
 #    volumes:
 #      - runner_frontend_data:/tmp/github-runner
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - /opt/pourymovie:/opt/pourymovie
   runner_infra:
     image: myoung34/github-runner:latest
     environment:
       RUNNER_NAME: runner_infra
     volumes:
       - runner_infra_data:/tmp/github-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/pourymovie:/opt/pourymovie
     networks:
       - pourymovie
 
