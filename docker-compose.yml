@@ -1,0 +1,69 @@
+services:
+  traefik:
+    extends:
+      file: ./traefik/docker-compose.yml
+      service: traefik
+
+  backend:
+    extends:
+      file: ./backend/docker-compose.yml
+      service: backend
+    env_file:
+      - ../env/backend/.env
+
+#  frontend:
+#    extends:
+#      file: ./frontend/docker-compose.yml
+#      service: frontend
+
+  db:
+    extends:
+      file: ./db/docker-compose.yml
+      service: db
+    env_file:
+      - ../env/infra/db/.env
+
+  minio:
+    extends:
+      file: ./minio/docker-compose.yml
+      service: minio
+    env_file:
+      - ../env/infra/minio/.env
+
+  portainer:
+    extends:
+      file: ./portainer/docker-compose.yml
+      service: portainer
+
+  runner_backend:
+    extends:
+      file: ./runner/docker-compose.yml
+      service: runner_backend
+    env_file:
+      - ../env/infra/runner/backend/.env
+
+#  runner_frontend:
+#    extends:
+#      file: ./runner/docker-compose.yml
+#      service: runner_frontend
+#    env_file:
+#      - ../env/infra/runner/frontend/.env
+
+  runner_infra:
+    extends:
+      file: ./runner/docker-compose.yml
+      service: runner_infra
+    env_file:
+      - ../env/infra/runner/infra/.env
+
+volumes:
+  portainer_data:
+  minio-data:
+  pgdata:
+  runner_backend_data:
+#  runner_frontend_data:
+  runner_infra_data:
+
+networks:
+  pourymovie:
+    name: pourymovie
