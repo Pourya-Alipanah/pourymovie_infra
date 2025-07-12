@@ -17,8 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          path: /opt/pourymovie/infra
           fetch-depth: 0
+
+      - name: Copy code to /opt/pourymovie/infra
+        run: |
+          sudo rm -rf /opt/pourymovie/infra/*
+          sudo cp -r . /opt/pourymovie/infra
+
       - name: Docker Compose Down
         run: |
           cd /opt/pourymovie/infra
