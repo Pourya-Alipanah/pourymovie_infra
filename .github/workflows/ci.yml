@@ -24,11 +24,16 @@ jobs:
           sudo rm -rf /opt/pourymovie/infra/*
           sudo cp -r . /opt/pourymovie/infra
 
+      - name: Docker Compose Down
+        run: |
+          cd /opt/pourymovie/infra
+          docker compose down
+
   deploy:
     runs-on: self-hosted
     needs: build
     steps:
-      - name: Run deployment script
+      - name: Docker Compose Up
         run: |
-          sudo chmod +x /opt/pourymovie/infra/redeploy.sh
-          sudo /opt/pourymovie/infra/redeploy.sh
+          cd /opt/pourymovie/infra
+          docker compose up -d --build --force-recreate --force-recreate

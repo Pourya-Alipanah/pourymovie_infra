@@ -7,14 +7,16 @@ services:
       - runner_backend_data:/tmp/github-runner
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/pourymovie:/opt/pourymovie
-    networks:
-      - pourymovie
+    env_file:
+      - ../../env/infra/runner/backend/.env
 #  runner_frontend:
 #    image: myoung34/github-runner:latest
 #    environment:
 #      REPO_URL: ${FRONTEND_REPO_URL}
 #      ACCESS_TOKEN: ${PAT_ACCESS_TOKEN}
 #      RUNNER_NAME: runner_frontend
+#    env_file:
+#      - ../../env/infra/runner/frontend/.env
 #    volumes:
 #      - runner_frontend_data:/tmp/github-runner
 #      - /var/run/docker.sock:/var/run/docker.sock
@@ -27,9 +29,10 @@ services:
       - runner_infra_data:/tmp/github-runner
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/pourymovie:/opt/pourymovie
-    networks:
-      - pourymovie
+    env_file:
+      - ../../env/infra/runner/infra/.env
 
-networks:
-  pourymovie:
-    external: true
+volumes:
+  runner_backend_data:
+#  runner_frontend_data:
+  runner_infra_data:
