@@ -3,12 +3,12 @@
 set -e
 
 SERVICES=(
-  "traefik/traefik.yml"
+  "traefik/docker-compose.yml"
   "db/docker-compose.yml"
   "minio/docker-compose.yml"
   "portainer/docker-compose.yml"
   "backend/docker-compose.yml"
-  "frontend/docker-compose.yml"
+#  "frontend/docker-compose.yml"
 )
 
 for svc in "${SERVICES[@]}"; do
