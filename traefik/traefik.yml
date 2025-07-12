@@ -1,8 +1,8 @@
 entryPoints:
   web:
     address: ":80"
-#  websecure:
-#    address: ":443"
+  websecure:
+    address: ":443"
 
 api:
   dashboard: true
@@ -18,10 +18,10 @@ providers:
     directory: /etc/traefik/dynamic
     watch: true
 
-#certificatesResolvers:
-#  letsencrypt:
-#    acme:
-#      email: pourya.alipanah2@gmail.com
-#      storage: /etc/traefik/acme.json
-#      httpChallenge:
-#        entryPoint: web
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: pourya.alipanah2@gmail.com
+      storage: /etc/traefik/acme.json
+      httpChallenge:
+        entryPoint: web

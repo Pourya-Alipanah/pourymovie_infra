@@ -4,43 +4,52 @@ http:
       rule: "Host(`api.pourymovie.ir`)"
       service: backend-service
       entryPoints:
-#        - websecure
+        - websecure
+      tls:
+        certResolver: letsencrypt
+    frontend-router:
+      rule: "Host(`pourymovie.ir`)"
+      service: frontend-service
+      entryPoints:
+        - websecure
         - web
-#      tls:
-#        certResolver: letsencrypt
-
-#    frontend-router:
-#      rule: "Host(`pourymovie.ir`)"
-#      service: frontend-service
-#      entryPoints:
-#        - websecure
-#        - web
-#      tls:
-#        certResolver: letsencrypt
+      tls:
+        certResolver: letsencrypt
 
     portainer-router:
       rule: "Host(`portainer.pourymovie.ir`)"
       service: portainer-service
       entryPoints:
-#        - websecure
-        - web
-#      tls:
-#        certResolver: letsencrypt
+        - websecure
+      tls:
+        certResolver: letsencrypt
 
     minio-router:
       rule: "Host(`minio.pourymovie.ir`)"
       service: minio-service
       entryPoints:
-#        - websecure
-        - web
-#      tls:
-#        certResolver: letsencrypt
+        - websecure
+      tls:
+        certResolver: letsencrypt
+
+    swagger-router:
+      rule: "Host(`swagger.pourymovie.ir`)"
+      service: swagger-service
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
 
   services:
     backend-service:
       loadBalancer:
         servers:
           - url: "http://backend:1406"
+
+    swagger-service:
+      loadBalancer:
+        servers:
+          - url: "http://backend:1406/apiDocs/v1"
 
     frontend-service:
       loadBalancer:
@@ -55,4 +64,4 @@ http:
     minio-service:
       loadBalancer:
         servers:
-          - url: "http://minio:9001"
+          - url: "http://minioProd:9001"
