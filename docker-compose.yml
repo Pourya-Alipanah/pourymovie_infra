@@ -8,6 +8,8 @@ services:
     extends:
       file: ./backend/docker-compose.yml
       service: backend
+    env_file:
+      - ../env/backend/.env
 
 #  frontend:
 #    extends:
@@ -18,11 +20,15 @@ services:
     extends:
       file: ./db/docker-compose.yml
       service: db
+    env_file:
+      - ../env/infra/db/.env
 
   minio:
     extends:
       file: ./minio/docker-compose.yml
       service: minio
+    env_file:
+      - ../env/infra/minio/.env
 
   portainer:
     extends:
@@ -33,16 +39,22 @@ services:
     extends:
       file: ./runner/docker-compose.yml
       service: runner_backend
+    env_file:
+      - ../env/infra/runner/backend/.env
 
 #  runner_frontend:
 #    extends:
 #      file: ./runner/docker-compose.yml
 #      service: runner_frontend
+#    env_file:
+#      - ../env/infra/runner/frontend/.env
 
   runner_infra:
     extends:
       file: ./runner/docker-compose.yml
       service: runner_infra
+    env_file:
+      - ../env/infra/runner/infra/.env
 
 volumes:
   portainer_data:
