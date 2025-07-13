@@ -1,5 +1,6 @@
 http:
   middlewares:
     swagger-path:
-      replacePath:
-        path: "/apiDocs/v1"
+      replacePathRegex:
+        regex: "^/(.*)"
+        replacement: "/apiDocs/v1/$1"
