@@ -1,6 +1,5 @@
 http:
   middlewares:
-    redirect-to-https:
-      redirectScheme:
-        scheme: https
-        permanent: true
+    swagger-path:
+      replacePath:
+        path: "/apiDocs/v1"

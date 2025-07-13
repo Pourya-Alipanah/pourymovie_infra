@@ -19,3 +19,8 @@ http:
       loadBalancer:
         servers:
           - url: "http://minioProd:9001"
+
+    swagger-service:
+      loadBalancer:
+        servers:
+          - url: "http://backend:1406"

@@ -27,3 +27,12 @@ http:
       tls:
         certResolver: letsencrypt
       service: minio-service
+
+    swagger-router:
+      rule: "Host(`swagger.pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: swagger-service
+      middlewares:
+        - swagger-path
