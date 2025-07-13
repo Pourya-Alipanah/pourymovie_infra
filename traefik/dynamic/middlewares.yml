@@ -5,6 +5,8 @@ http:
         scheme: https
         permanent: true
 
-    swagger-add-prefix:
-      replacePathPrefix:
-        prefix: "/apiDocs/v1"
+    swagger-path-rewrite:
+      stripPrefix:
+        prefixes:
+          - "/"
+      replacePath: "/apiDocs/v1"

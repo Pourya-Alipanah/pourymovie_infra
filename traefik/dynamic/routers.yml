@@ -62,6 +62,6 @@ http:
       entryPoints: [websecure]
       tls:
         certResolver: letsencrypt
-      service: swagger-service
+      service: backend-service
       middlewares:
-        - swagger-add-prefix
+        - swagger-path-rewrite
