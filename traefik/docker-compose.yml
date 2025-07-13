@@ -3,10 +3,13 @@ services:
     image: traefik:v3.0 # یا v2.11 اگه نسخه قدیمی‌تری می‌خوای
     container_name: traefik
     command:
+      - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --api.dashboard=true
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
+      - --providers.file.directory=/etc/traefik/dynamic
+      - --providers.file.watch=true
       - --certificatesresolvers.letsencrypt.acme.tlschallenge=true
       - --certificatesresolvers.letsencrypt.acme.email=pourya.alipanah2@gmail.com
       - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
@@ -15,8 +18,9 @@ services:
       - "443:443"
       - "8080:8080"
     volumes:
-      - ./letsencrypt:/letsencrypt
+      - /etc/letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./dynamic:/etc/traefik/dynamic:ro
     networks:
       - pourymovie
 
