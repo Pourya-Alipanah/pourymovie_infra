@@ -11,10 +11,10 @@ services:
     env_file:
       - ../env/backend/.env
 
-#  frontend:
-#    extends:
-#      file: ./frontend/docker-compose.yml
-#      service: frontend
+  frontend:
+    extends:
+      file: ./frontend/docker-compose.yml
+      service: frontend
 
   db:
     extends:
