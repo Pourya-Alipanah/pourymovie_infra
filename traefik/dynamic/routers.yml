@@ -1,23 +1,11 @@
 http:
   routers:
-    frontend-router-http:
-      rule: "Host(`pourymovie.ir`)"
-      entryPoints: [web]
-      middlewares: [redirect-to-https]
-      service: frontend-service
-
     frontend-router:
       rule: "Host(`pourymovie.ir`)"
       entryPoints: [websecure]
       tls:
         certResolver: letsencrypt
       service: frontend-service
-
-    backend-router-http:
-      rule: "Host(`api.pourymovie.ir`)"
-      entryPoints: [web]
-      middlewares: [redirect-to-https]
-      service: backend-service
 
     backend-router:
       rule: "Host(`api.pourymovie.ir`)"
@@ -26,24 +14,12 @@ http:
         certResolver: letsencrypt
       service: backend-service
 
-    portainer-router-http:
-      rule: "Host(`portainer.pourymovie.ir`)"
-      entryPoints: [web]
-      middlewares: [redirect-to-https]
-      service: portainer-service
-
     portainer-router:
       rule: "Host(`portainer.pourymovie.ir`)"
       entryPoints: [websecure]
       tls:
         certResolver: letsencrypt
       service: portainer-service
-
-    minio-router-http:
-      rule: "Host(`minio.pourymovie.ir`)"
-      entryPoints: [web]
-      middlewares: [redirect-to-https]
-      service: minio-service
 
     minio-router:
       rule: "Host(`minio.pourymovie.ir`)"
