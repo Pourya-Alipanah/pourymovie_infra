@@ -9,7 +9,7 @@ http:
       rule: "Host(`pourymovie.ir`)"
       entryPoints: [websecure]
       tls:
-        certResolver: letsencrypt
+        certResolver: myResolver
       service: frontend-service
 
     backend-router-http:
@@ -22,7 +22,7 @@ http:
       rule: "Host(`api.pourymovie.ir`)"
       entryPoints: [websecure]
       tls:
-        certResolver: letsencrypt
+        certResolver: myResolver
       service: backend-service
 
     portainer-router-http:
@@ -35,7 +35,7 @@ http:
       rule: "Host(`portainer.pourymovie.ir`)"
       entryPoints: [websecure]
       tls:
-        certResolver: letsencrypt
+        certResolver: myResolver
       service: portainer-service
 
     minio-router-http:
@@ -48,5 +48,5 @@ http:
       rule: "Host(`minio.pourymovie.ir`)"
       entryPoints: [websecure]
       tls:
-        certResolver: letsencrypt
+        certResolver: myResolver
       service: minio-service
