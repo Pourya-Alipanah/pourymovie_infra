@@ -1,0 +1,21 @@
+http:
+  services:
+    backend-service:
+      loadBalancer:
+        servers:
+          - url: "http://backend:1406"
+
+    frontend-service:
+      loadBalancer:
+        servers:
+          - url: "http://frontend:3000"
+
+    portainer-service:
+      loadBalancer:
+        servers:
+          - url: "http://portainer:9000"
+
+    minio-service:
+      loadBalancer:
+        servers:
+          - url: "http://minioProd:9001"
