@@ -32,3 +32,6 @@ services:
       - "traefik.http.routers.minio-router-http.middlewares=redirect-to-https"
       - "traefik.http.services.minio-service.loadbalancer.server.port=9001"
 
+networks:
+  pourymovie:
+    external: true

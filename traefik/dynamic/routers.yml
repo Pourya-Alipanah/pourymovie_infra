@@ -50,18 +50,3 @@ http:
       tls:
         certResolver: letsencrypt
       service: minio-service
-
-    swagger-router-http:
-      rule: "Host(`swagger.pourymovie.ir`)"
-      entryPoints: [web]
-      middlewares: [redirect-to-https]
-      service: swagger-service
-
-    swagger-router:
-      rule: "Host(`swagger.pourymovie.ir`)"
-      entryPoints: [websecure]
-      tls:
-        certResolver: letsencrypt
-      service: backend-service
-      middlewares:
-        - swagger-path-rewrite

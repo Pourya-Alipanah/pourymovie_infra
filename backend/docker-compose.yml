@@ -25,3 +25,6 @@ services:
       - "traefik.http.services.backend-service.loadbalancer.server.port=1406"
 
 
+networks:
+  pourymovie:
+    external: true
