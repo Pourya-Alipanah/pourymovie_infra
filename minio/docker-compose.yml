@@ -20,18 +20,6 @@ services:
       retries: 5
     networks:
       - pourymovie
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.minio-router.rule=Host(`minio.pourymovie.ir`)"
-      - "traefik.http.routers.minio-router.entrypoints=websecure"
-      - "traefik.http.routers.minio-router.entrypoints=web"
-      - "traefik.http.routers.minio-router.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.minio-router.service=minio-service"
-      - "traefik.http.routers.minio-router-http.rule=Host(`minio.pourymovie.ir`)"
-      - "traefik.http.routers.minio-router-http.entrypoints=web"
-      - "traefik.http.routers.minio-router-http.service=minio-service"
-      - "traefik.http.routers.minio-router-http.middlewares=redirect-to-https"
-      - "traefik.http.services.minio-service.loadbalancer.server.port=9001"
 
 networks:
   pourymovie:

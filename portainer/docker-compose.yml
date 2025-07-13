@@ -10,18 +10,6 @@ services:
       - portainer_data:/data
     networks:
       - pourymovie
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer-router.rule=Host(`portainer.pourymovie.ir`)"
-      - "traefik.http.routers.portainer-router.entrypoints=websecure"
-      - "traefik.http.routers.portainer-router.entrypoints=web"
-      - "traefik.http.routers.portainer-router.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.portainer-router.service=portainer-service"
-      - "traefik.http.routers.portainer-router-http.rule=Host(`portainer.pourymovie.ir`)"
-      - "traefik.http.routers.portainer-router-http.entrypoints=web"
-      - "traefik.http.routers.portainer-router-http.service=portainer-service"
-      - "traefik.http.routers.portainer-router-http.middlewares=redirect-to-https"
-      - "traefik.http.services.portainer-service.loadbalancer.server.port=9000"
 
 networks:
   pourymovie:

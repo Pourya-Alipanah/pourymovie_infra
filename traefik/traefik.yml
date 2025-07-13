@@ -22,5 +22,5 @@ certificatesResolvers:
   letsencrypt:
     acme:
       email: pourya.alipanah2@gmail.com
-      storage: /etc/traefik/acme.json
+      storage: /letsencrypt/acme.json
       tlsChallenge: true

@@ -12,18 +12,6 @@ services:
         condition: service_started
     networks:
       - pourymovie
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.backend-router.rule=Host(`api.pourymovie.ir`)"
-      - "traefik.http.routers.backend-router.entrypoints=websecure"
-      - "traefik.http.routers.backend-router.entrypoints=web"
-      - "traefik.http.routers.backend-router.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.backend-router.service=backend-service"
-      - "traefik.http.routers.backend-router-http.rule=Host(`api.pourymovie.ir`)"
-      - "traefik.http.routers.backend-router-http.entrypoints=web"
-      - "traefik.http.routers.backend-router-http.service=backend-service"
-      - "traefik.http.routers.backend-router-http.middlewares=redirect-to-https"
-      - "traefik.http.services.backend-service.loadbalancer.server.port=1406"
 
 
 networks:
