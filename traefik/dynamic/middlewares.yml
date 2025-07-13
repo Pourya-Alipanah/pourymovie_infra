@@ -4,3 +4,7 @@ http:
       redirectScheme:
         scheme: https
         permanent: true
+
+    swagger-add-prefix:
+      replacePathPrefix:
+        prefix: "/apiDocs/v1"
