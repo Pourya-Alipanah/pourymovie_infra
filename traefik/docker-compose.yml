@@ -1,18 +1,20 @@
 services:
   traefik:
-    image: traefik:v2.11
-    restart: always
+    image: traefik:v3.0 # یا v2.11 اگه نسخه قدیمی‌تری می‌خوای
     container_name: traefik
     command:
-      - --configFile=/etc/traefik/traefik.yml
+      - --entrypoints.websecure.address=:443
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --certificatesresolvers.letsencrypt.acme.tlschallenge=true
+      - --certificatesresolvers.letsencrypt.acme.email=pourya.alipanah2@gmail.com
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
     ports:
-      - "80:80"
       - "443:443"
-      - "8080:8080" # Dashboard
+      - "8080:8080"
     volumes:
+      - ./letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik.yml:/etc/traefik/traefik.yml
-      - ./acme.json:/etc/traefik/acme.json
-      - ./dynamic:/etc/traefik/dynamic
     networks:
       - pourymovie

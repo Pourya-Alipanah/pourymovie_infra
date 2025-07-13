@@ -24,7 +24,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.minio-router.rule=Host(`minio.pourymovie.ir`)"
       - "traefik.http.routers.minio-router.entrypoints=websecure"
-      - "traefik.http.routers.minio-router.tls.certresolver=myResolver"
+      - "traefik.http.routers.minio-router.tls.certresolver=letsencrypt"
       - "traefik.http.routers.minio-router.service=minio-service"
       - "traefik.http.routers.minio-router-http.rule=Host(`minio.pourymovie.ir`)"
       - "traefik.http.routers.minio-router-http.entrypoints=web"
