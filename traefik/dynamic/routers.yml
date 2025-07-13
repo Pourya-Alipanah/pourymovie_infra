@@ -3,6 +3,7 @@ http:
     frontend-router-http:
       rule: "Host(`pourymovie.ir`)"
       entryPoints: [web]
+      middlewares: [redirect-to-https]
       service: frontend-service
 
     frontend-router:
