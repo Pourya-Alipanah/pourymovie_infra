@@ -11,3 +11,14 @@ services:
       - backend
     networks:
       - pourymovie
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend-router.rule=Host(`pourymovie.ir`)"
+      - "traefik.http.routers.frontend-router.entrypoints=websecure"
+      - "traefik.http.routers.frontend-router.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.frontend-router.service=frontend-service"
+      - "traefik.http.routers.frontend-router-http.rule=Host(`pourymovie.ir`)"
+      - "traefik.http.routers.frontend-router-http.entrypoints=web"
+      - "traefik.http.routers.frontend-router-http.service=frontend-service"
+      - "traefik.http.services.frontend-service.loadbalancer.server.port=3000"
+
