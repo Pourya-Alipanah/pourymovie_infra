@@ -1,6 +1,7 @@
 services:
   runner_backend:
     image: myoung34/github-runner:latest
+    restart: always
     environment:
       RUNNER_NAME: runner_backend
     volumes:
@@ -23,6 +24,7 @@ services:
 #      - /opt/pourymovie:/opt/pourymovie
   runner_infra:
     image: myoung34/github-runner:latest
+    restart: always
     environment:
       RUNNER_NAME: runner_infra
     volumes:
