@@ -11,7 +11,3 @@ services:
       - backend
     networks:
       - pourymovie
-
-networks:
-  pourymovie:
-    external: true

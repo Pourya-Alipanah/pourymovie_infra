@@ -10,7 +10,3 @@ services:
       - portainer_data:/data
     networks:
       - pourymovie
-
-networks:
-  pourymovie:
-    external: true

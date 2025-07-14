@@ -12,8 +12,3 @@ services:
         condition: service_started
     networks:
       - pourymovie
-
-
-networks:
-  pourymovie:
-    external: true

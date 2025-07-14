@@ -42,4 +42,4 @@ volumes:
 
 networks:
   pourymovie:
-    external: true
+    name: pourymovie

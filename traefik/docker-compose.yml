@@ -13,7 +13,3 @@ services:
       - ./traefik.yml:/etc/traefik/traefik.yml:ro
     networks:
       - pourymovie
-
-networks:
-  pourymovie:
-    external: true
