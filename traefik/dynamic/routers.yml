@@ -1,0 +1,38 @@
+http:
+  routers:
+    frontend-router:
+      rule: "Host(`pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: frontend-service
+
+    backend-router:
+      rule: "Host(`api.pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: backend-service
+
+    portainer-router:
+      rule: "Host(`portainer.pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: portainer-service
+
+#    minio-router:
+#      rule: "Host(`minio.pourymovie.ir`)"
+#      entryPoints: [websecure]
+#      tls:
+#        certResolver: letsencrypt
+#      service: minio-service
+
+    swagger-router:
+      rule: "Host(`swagger.pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: swagger-service
+      middlewares:
+        - swagger-path

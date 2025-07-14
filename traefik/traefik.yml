@@ -1,0 +1,32 @@
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
+  websecure:
+    address: ":443"
+
+api:
+  dashboard: true
+  insecure: false
+
+log:
+  level: DEBUG
+
+providers:
+  docker:
+    exposedByDefault: false
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: pourya.alipanah2@gmail.com
+      storage: /letsencrypt/acme.json
+      tlsChallenge: true

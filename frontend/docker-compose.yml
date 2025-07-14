@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build:
+      context: ../../frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../../env/frontend/.env
+    restart: always
+    depends_on:
+      - backend
+    networks:
+      - pourymovie

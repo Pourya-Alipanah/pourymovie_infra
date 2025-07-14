@@ -1,0 +1,14 @@
+services:
+  backend:
+    restart: always
+    build:
+      context: ../../backend
+    ports:
+      - "1406:1406"
+    depends_on:
+      db:
+        condition: service_healthy
+#      minio:
+#        condition: service_started
+    networks:
+      - pourymovie
