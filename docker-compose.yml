@@ -23,12 +23,12 @@ services:
     env_file:
       - ../env/infra/db/.env
 
-  minio:
-    extends:
-      file: ./minio/docker-compose.yml
-      service: minio
-    env_file:
-      - ../env/infra/minio/.env
+#  minio:
+#    extends:
+#      file: ./minio/docker-compose.yml
+#      service: minio
+#    env_file:
+#      - ../env/infra/minio/.env
 
   portainer:
     extends:

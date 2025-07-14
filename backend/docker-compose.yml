@@ -8,7 +8,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      minio:
-        condition: service_started
+#      minio:
+#        condition: service_started
     networks:
       - pourymovie

@@ -21,12 +21,12 @@ http:
         certResolver: letsencrypt
       service: portainer-service
 
-    minio-router:
-      rule: "Host(`minio.pourymovie.ir`)"
-      entryPoints: [websecure]
-      tls:
-        certResolver: letsencrypt
-      service: minio-service
+#    minio-router:
+#      rule: "Host(`minio.pourymovie.ir`)"
+#      entryPoints: [websecure]
+#      tls:
+#        certResolver: letsencrypt
+#      service: minio-service
 
     swagger-router:
       rule: "Host(`swagger.pourymovie.ir`)"
