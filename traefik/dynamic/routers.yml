@@ -36,3 +36,11 @@ http:
       service: swagger-service
       middlewares:
         - swagger-path
+
+    http-to-https:
+      entryPoints:
+        - web
+      rule: "HostRegexp(`{host:.+}`)"
+      middlewares:
+        - redirect-to-https
+      service: api@internal
