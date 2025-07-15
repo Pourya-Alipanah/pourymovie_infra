@@ -43,4 +43,5 @@ http:
       rule: "HostRegexp(`{host:.+}`)"
       middlewares:
         - redirect-to-https
-      service: api@internal
+      service: noop@internal
+      priority:  1
