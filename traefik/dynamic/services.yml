@@ -24,3 +24,8 @@ http:
       loadBalancer:
         servers:
           - url: "http://backend:1406"
+
+    backDoc-service:
+      loadBalancer:
+        servers:
+          - url: "http://backend:1407"

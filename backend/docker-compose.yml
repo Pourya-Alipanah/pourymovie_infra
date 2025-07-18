@@ -5,6 +5,7 @@ services:
       context: ../../backend
     ports:
       - "1406:1406"
+      - "1407:1407"
     depends_on:
       db:
         condition: service_healthy

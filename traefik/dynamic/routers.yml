@@ -37,6 +37,13 @@ http:
       middlewares:
         - swagger-path
 
+    backDoc-router:
+      rule: "Host(`backDoc.pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: backDoc-service
+
     http-to-https:
       entryPoints:
         - web
