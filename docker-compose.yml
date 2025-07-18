@@ -44,6 +44,7 @@ volumes:
   portainer_data:
   minio-data:
   pgdata:
+  uptime-kuma-data:
 
 networks:
   pourymovie:

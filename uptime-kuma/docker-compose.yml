@@ -8,6 +8,3 @@ services:
       - uptime-kuma-data:/app/data
     networks:
       - pourymovie
-
-volumes:
-  uptime-kuma-data:
