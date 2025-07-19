@@ -35,10 +35,10 @@ services:
       file: ./portainer/docker-compose.yml
       service: portainer
 
-  uptime-kuma:
-    extends:
-      file: ./uptime-kuma/docker-compose.yml
-      service: uptime-kuma
+#  uptime-kuma:
+#    extends:
+#      file: ./uptime-kuma/docker-compose.yml
+#      service: uptime-kuma
 
 volumes:
   portainer_data:

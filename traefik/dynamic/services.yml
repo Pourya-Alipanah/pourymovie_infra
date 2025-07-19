@@ -29,8 +29,3 @@ http:
       loadBalancer:
         servers:
           - url: "http://backend:1407"
-
-    uptime-service:
-      loadBalancer:
-        servers:
-          - url: "http://uptime-kuma:3001"
