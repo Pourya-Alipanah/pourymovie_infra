@@ -12,6 +12,7 @@ services:
       - ../../env/infra/runner/backend/.env
   runner_frontend:
     image: myoung34/github-runner:latest
+    restart: always
     environment:
       RUNNER_NAME: runner_frontend
     env_file:
