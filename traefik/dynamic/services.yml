@@ -38,4 +38,4 @@ http:
     database-service:
       loadBalancer:
         servers:
-          - url: "http://db:5431"
+          - url: "http://db:5432"
