@@ -34,8 +34,3 @@ http:
       loadBalancer:
         servers:
           - url: "http://docker-socket:2375"
-
-    database-service:
-      loadBalancer:
-        servers:
-          - url: "http://db:5432"
