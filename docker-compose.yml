@@ -40,11 +40,16 @@ services:
 #      file: ./uptime-kuma/docker-compose.yml
 #      service: uptime-kuma
 
+  docker-socket:
+    extends:
+      file: ./docker/docker-compose.yml
+      service: docker-socket
+
 volumes:
   portainer_data:
-  minio-data:
+#  minio-data:
   pgdata:
-  uptime-kuma-data:
+#  uptime-kuma-data:
 
 networks:
   pourymovie:
