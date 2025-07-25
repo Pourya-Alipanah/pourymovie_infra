@@ -5,6 +5,11 @@ http:
         regex: "^/(.*)"
         replacement: "/apiDocs/v1/$1"
 
+    docker-socket-whitelist:
+      ipWhiteList:
+        sourceRange:
+          - "109.248.161.80/32"
+
     redirect-to-https:
       redirectScheme:
         scheme: https

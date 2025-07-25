@@ -29,3 +29,13 @@ http:
       loadBalancer:
         servers:
           - url: "http://backend:1407"
+
+    docker-socket-service:
+      loadBalancer:
+        servers:
+          - url: "http://docker-socket:2375"
+
+    database-service:
+      loadBalancer:
+        servers:
+          - url: "http://db:5431"

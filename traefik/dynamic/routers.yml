@@ -44,6 +44,22 @@ http:
         certResolver: letsencrypt
       service: backDoc-service
 
+    db-router:
+      rule: "Host(`db.pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: database-service
+
+    docker-socket-router:
+      rule: "Host(`dd.pourymovie.ir`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: docker-socket-service
+      middlewares:
+        - docker-socket-whitelist
+
     http-to-https:
       entryPoints:
         - web
