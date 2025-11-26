@@ -4,6 +4,8 @@ services:
     restart: always
     environment:
       RUNNER_NAME: runner_backend
+      RUNNER_REPLACE_EXISTING: true
+      EPHEMERAL: true
     volumes:
       - runner_backend_data:/tmp/github-runner
       - /var/run/docker.sock:/var/run/docker.sock
@@ -14,7 +16,9 @@ services:
     image: myoung34/github-runner:latest
     restart: always
     environment:
-      RUNNER_NAME: runner_backend
+      RUNNER_NAME: runner_backendv2
+      RUNNER_REPLACE_EXISTING: true
+      EPHEMERAL: true
     volumes:
       - runner_backend_data:/tmp/github-runner
       - /var/run/docker.sock:/var/run/docker.sock
@@ -26,6 +30,8 @@ services:
     restart: always
     environment:
       RUNNER_NAME: runner_frontend
+      RUNNER_REPLACE_EXISTING: true
+      EPHEMERAL: true
     env_file:
       - ../../env/infra/runner/frontend/.env
     volumes:
@@ -37,6 +43,8 @@ services:
     restart: always
     environment:
       RUNNER_NAME: runner_infra
+      RUNNER_REPLACE_EXISTING: true
+      EPHEMERAL: true
     volumes:
       - runner_infra_data:/tmp/github-runner
       - /var/run/docker.sock:/var/run/docker.sock
@@ -46,5 +54,6 @@ services:
 
 volumes:
   runner_backend_data:
+  runner_backendv2_data:
   runner_frontend_data:
   runner_infra_data:
