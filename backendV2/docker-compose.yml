@@ -1,0 +1,12 @@
+services:
+  backendv2:
+    restart: always
+    build:
+      context: ../../backendV2
+    ports:
+      - "1379:1406"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - pourymovie

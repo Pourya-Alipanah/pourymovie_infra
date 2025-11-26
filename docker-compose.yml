@@ -10,6 +10,12 @@ services:
       service: backend
     env_file:
       - ../env/backend/.env
+  backendv2:
+    extends:
+      file: ./backendV2/docker-compose.yml
+      service: backendv2
+    env_file:
+      - ../env/backendV2/.env
 
   frontend:
     extends:

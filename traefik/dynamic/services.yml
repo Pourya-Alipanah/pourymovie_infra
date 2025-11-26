@@ -5,6 +5,11 @@ http:
         servers:
           - url: "http://backend:1406"
 
+    backendv2-service:
+      loadBalancer:
+        servers:
+          - url: "http://backendv2:1406"
+
     frontend-service:
       loadBalancer:
         servers:
@@ -24,6 +29,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://backend:1406"
+
+    swaggerv2-service:
+      loadBalancer:
+        servers:
+          - url: "http://backendv2:1406"
 
     backDoc-service:
       loadBalancer:

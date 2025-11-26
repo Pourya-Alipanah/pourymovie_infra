@@ -9,5 +9,6 @@ services:
     restart: always
     depends_on:
       - backend
+      - backendv2
     networks:
       - pourymovie

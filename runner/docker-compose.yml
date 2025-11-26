@@ -10,6 +10,17 @@ services:
       - /opt/pourymovie:/opt/pourymovie
     env_file:
       - ../../env/infra/runner/backend/.env
+  runner_backendv2:
+    image: myoung34/github-runner:latest
+    restart: always
+    environment:
+      RUNNER_NAME: runner_backend
+    volumes:
+      - runner_backend_data:/tmp/github-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/pourymovie:/opt/pourymovie
+    env_file:
+      - ../../env/infra/runner/backendV2/.env
   runner_frontend:
     image: myoung34/github-runner:latest
     restart: always

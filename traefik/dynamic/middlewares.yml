@@ -2,8 +2,13 @@ http:
   middlewares:
     swagger-path:
       replacePathRegex:
-        regex: "^/(.*)"
+        regex: "^/v1(?:/(.*))?$"
         replacement: "/apiDocs/v1/$1"
+
+    swaggerv2-path:
+      replacePathRegex:
+        regex: "^/v2(?:/(.*))?$"
+        replacement: "/v2/apiDocs/$1"
 
     docker-socket-whitelist:
       ipWhiteList:

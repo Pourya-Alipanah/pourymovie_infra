@@ -8,11 +8,18 @@ http:
       service: frontend-service
 
     backend-router:
-      rule: "Host(`api.pourymovie.ir`)"
+      rule: "Host(`api.pourymovie.ir`) && PathPrefix(`/api/v1`)"
       entryPoints: [websecure]
       tls:
         certResolver: letsencrypt
       service: backend-service
+
+    backendv2-router:
+      rule: "Host(`api.pourymovie.ir`) && PathPrefix(`/v2`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: backendv2-service
 
     portainer-router:
       rule: "Host(`portainer.pourymovie.ir`)"
@@ -29,13 +36,22 @@ http:
 #      service: minio-service
 
     swagger-router:
-      rule: "Host(`swagger.pourymovie.ir`)"
+      rule: "Host(`swagger.pourymovie.ir`) && PathPrefix(`/v1`)"
       entryPoints: [websecure]
       tls:
         certResolver: letsencrypt
       service: swagger-service
       middlewares:
         - swagger-path
+
+    swaggerv2-router:
+      rule: "Host(`swagger.pourymovie.ir`) && PathPrefix(`/v2`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: swaggerv2-service
+      middlewares:
+        - swaggerv2-path
 
     backDoc-router:
       rule: "Host(`backDoc.pourymovie.ir`)"
