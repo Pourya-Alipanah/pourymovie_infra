@@ -8,7 +8,7 @@ http:
     swaggerv2-path:
       replacePathRegex:
         regex: "^/v2(?:/(.*))?$"
-        replacement: "/v2/apiDocs/$1"
+        replacement: "/v2/apiDocs"
 
     docker-socket-whitelist:
       ipWhiteList:
